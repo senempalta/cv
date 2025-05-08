@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Senem Palta | CV</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #7445d1;
+        --background: #f4f4f7;
+        --text: #1f1f1f;
+        --card-bg: #fff;
+        --sidebar-bg: #2b2b2b;
+        --sidebar-text: #f0f0f0;
+        --active-bg: #3a2169;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: var(--background);
+        color: var(--text);
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        width: 240px;
+        background: var(--sidebar-bg);
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .sidebar button {
+        background: transparent;
+        border: none;
+        color: var(--sidebar-text);
+        text-align: left;
+        padding: 12px 16px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+      }
+
+      .sidebar button:hover,
+      .sidebar button.active {
+        background: var(--active-bg);
+      }
+
+      .content {
+        flex: 1;
+        padding: 40px;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+        margin-bottom: 30px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h2 {
+        margin-bottom: 20px;
+        color: var(--primary);
+        font-size: 24px;
+      }
+
+      .card p,
+      .card ul {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+      }
+
+      .card ul {
+        padding-left: 20px;
+      }
+
+      .profile {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .profile img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      .profile h1 {
+        font-size: 26px;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .profile h3 {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .profile .social-icons a {
+        margin: 0 15px;
+        color: var(--primary);
+        font-size: 24px;
+        transition: color 0.3s ease;
+      }
+
+      .profile .social-icons a:hover {
+        color: #333;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          flex-direction: row;
+          overflow-x: auto;
+          padding: 10px;
+        }
+
+        .sidebar button {
+          flex: 1;
+          font-size: 14px;
+          padding: 10px;
+          justify-content: center;
+        }
+
+        .content {
+          padding: 20px;
+        }
+
+        .card {
+          padding: 20px;
+        }
+
+        .card h2 {
+          font-size: 20px;
+        }
+
+        .card p,
+        .card li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar" id="sidebar">
+        <button onclick="showContent('hakkimda', this)" class="active">
+          <i class="fas fa-user"></i> Hakkımda
+        </button>
+        <button onclick="showContent('iletisim', this)">
+          <i class="fas fa-envelope"></i> İletişim
+        </button>
+        <button onclick="showContent('deneyim', this)">
+          <i class="fas fa-briefcase"></i> Deneyim
+        </button>
+        <button onclick="showContent('egitim', this)">
+          <i class="fas fa-graduation-cap"></i> Eğitim
+        </button>
+        <button onclick="showContent('yetkinlikler', this)">
+          <i class="fas fa-cogs"></i> Yetkinlikler
+        </button>
+        <button onclick="showContent('sertifikalar', this)">
+          <i class="fas fa-certificate"></i> Sertifikalar
+        </button>
+        <button onclick="showContent('diller', this)">
+          <i class="fas fa-language"></i> Diller
+        </button>
+        <button onclick="showContent('referanslar', this)">
+          <i class="fas fa-users"></i> Referanslar
+        </button>
+      </div>
+
+      <div class="content" id="contentArea">
+        <div class="profile">
+          <!-- Profil Resmi ve Bilgileri -->
+          <img src="photo.jpeg" alt="Senem Palta" />
+          <h1>Senem Palta</h1>
+          <h3>İş Geliştirme Uzmanı</h3>
+
+          <!-- Sosyal Medya İkonları -->
+          <div class="social-icons">
+            <a href="https://github.com/senempalta" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/senempalta" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+        <!-- İçerik Alanı -->
+        <div class="card">
+          <h2>Hakkımda</h2>
+          <p>
+            Merhaba, ben Senem. Bilgisayar Programcılığı öğrencisiyim ve
+            Turkpin'de İş Geliştirme Uzmanı olarak çalışıyorum.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const contents = {
+        hakkimda: `
+        <div class="card">
+          <h2>Hakkımda</h2>
+          <p>Merhaba, ben Senem. Bilgisayar Programcılığı öğrencisiyim ve
+            Turkpin'de İş Geliştirme
+            Uzmanı olarak çalışıyorum.</p>
+        </div>
+      `,
+        iletisim: `
+        <div class="card">
+          <h2>İletişim</h2>
+          <p><i class="fas fa-envelope"></i> senem.palta1@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +90 545 394 03 18</p>
+          <p><i class="fas fa-map-marker-alt"></i> Eskişehir, Türkiye</p>
+        </div>
+      `,
+        yetkinlikler: `
+        <div class="card">
+          <h2>Yetkinlikler</h2>
+          <ul>
+            <li>C++ ile yazılım geliştirme</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Dijital Pazarlama & Sosyal Medya Yönetimi</li>
+            <li>Photoshop ve Canva</li>
+          </ul>
+        </div>
+      `,
+        egitim: `
+        <div class="card">
+          <h2>Eğitim</h2>
+          <ul>
+            <li><strong>Hukuk</strong> – İstanbul Üniversitesi</li>
+            (2018-2022) [Tamamlanmadı]
+            <br><li><strong>Bilgisayar Programcılığı</strong> – Eskişehir Teknik Üniversitesi</li>
+            (2024-...) [Devam Ediyor]
+          </ul>
+        </div>
+      `,
+        sertifikalar: `
+        <div class="card">
+          <h2>Sertifikalar</h2>
+          <ul>
+            <li>
+            <a href="certificates/writing_business_emails.pdf">Writing Business Emails – LinkedIn Learning</a>    
+            </li>
+            <li>
+            <a href="certificates/leading_with_stories.pdf">Leading with Stories – LinkedIn Learning</a>
+            </li>
+          </ul>
+        </div>
+      `,
+        deneyim: `
+        <div class="card">
+          <h2>Deneyim</h2>
+          <ul>
+            <li><strong>Business Development Manager</strong> – Turkpin (09.2023-Devam Ediyor)</li>
+          </ul>
+        </div>
+      `,
+        diller: `
+        <div class="card">
+          <h2>Diller</h2>
+          <ul>
+            <li>Türkçe: Anadil</li>
+            <li>İngilizce: İleri Seviye</li>
+          </ul>
+        </div>
+      `,
+        referanslar: `
+        <div class="card">
+          <h2>Referanslar</h2>
+          <p>Referanslarım isteğe bağlı olarak sağlanacaktır.</p>
+        </div>
+      `,
+      };
+
+      function showContent(section, button) {
+        const content = contents[section];
+        if (content) {
+          document.getElementById("contentArea").innerHTML = content;
+
+          // Active buton görünümü
+          document
+            .querySelectorAll(".sidebar button")
+            .forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>
